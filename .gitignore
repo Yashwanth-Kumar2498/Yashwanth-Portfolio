@@ -1,0 +1,4 @@
+git rm -r --cached .next node_modules
+git add .gitignore
+git commit -m "Add .gitignore and clean unnecessary files"
+git push origin main
