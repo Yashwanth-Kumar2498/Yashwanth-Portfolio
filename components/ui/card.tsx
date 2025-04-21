@@ -1,14 +1,25 @@
 // components/ui/card.tsx
 import React from "react";
+import { cn } from "@/lib/utils";
 
-export function Card({ children }: { children: React.ReactNode }) {
+interface CardProps extends React.HTMLAttributes<HTMLDivElement> {}
+
+export function Card({ className, ...props }: CardProps) {
   return (
-    <div className="rounded-2xl border bg-white p-4 shadow-md">
-      {children}
-    </div>
+    <div
+      className={cn(
+        "rounded-2xl border bg-white text-black shadow-sm dark:border-gray-800 dark:bg-gray-950 dark:text-white",
+        className
+      )}
+      {...props}
+    />
   );
 }
 
-export function CardContent({ children }: { children: React.ReactNode }) {
-  return <div className="mt-2 text-sm text-gray-700">{children}</div>;
+interface CardContentProps extends React.HTMLAttributes<HTMLDivElement> {}
+
+export function CardContent({ className, ...props }: CardContentProps) {
+  return (
+    <div className={cn("p-6 pt-0", className)} {...props} />
+  );
 }
